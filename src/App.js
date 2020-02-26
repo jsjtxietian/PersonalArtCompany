@@ -1,26 +1,19 @@
 import React from 'react';
-import logo from './logo.svg';
 import './App.css';
+import ReactAudioPlayer from 'react-audio-player';
+import music from './Music/test.wav'
 
 function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+	// const myaudio = new Audio(music)
+	// myaudio.play();
+	// myaudio.loop = true;
+	return (
+		<ReactAudioPlayer
+			src={music}
+			autoPlay
+			controls
+		/>
+	);
 }
 
 export default App;
