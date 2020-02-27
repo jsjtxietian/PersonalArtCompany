@@ -4,23 +4,24 @@ import 'antd/dist/antd.css';
 
 import ReactAudioPlayer from 'react-audio-player';
 import musicConfig from './Music/config.json'
-import { Layout, Menu, Breadcrumb, Icon, Tooltip } from 'antd';
+import { Layout, Menu, Timeline, Breadcrumb} from 'antd';
 
 
 function App() {
+
 	const { SubMenu } = Menu;
 	const { Header, Content, Sider } = Layout;
 
-	const [track, setTrack] = useState("");
-	const [musicID, setMusicID] = useState("2_1.wav");
-
 	//check tips length
 	musicConfig.ListeningGuide.map((s) => {
-		if (s.Tips.Nodes.length != s.Tips.Descriptions.length) {
+		if (s.Tips.Nodes.length !== s.Tips.Descriptions.length) {
 			console.assert(s);
 		}
 	})
 
+	//init hooks
+	const [currentKey, setcurrentKey] = useState(0);
+	const [track, setTrack] = useState(require("./Music/2_1.wav"));
 
 	return (
 		<Layout>
@@ -41,17 +42,18 @@ function App() {
 				<Sider width={200} style={{ background: '#fff' }}>
 					<Menu
 						mode="inline"
-						defaultSelectedKeys={['1']}
+						// defaultSelectedKeys={['1']}
 						defaultOpenKeys={['ListeningGuide']}
 						style={{ height: '100%', borderRight: 0 }}
 						onClick={(item) => {
-							//change music
 							let k = parseInt(item.key);
+							setcurrentKey(k);
+
 							let trackName = musicConfig.ListeningGuide[k].Track;
 							setTrack(require("./Music/" + trackName));
 
-							//change info
-							
+							//TODO change info
+
 						}}
 					>
 						<SubMenu
@@ -96,6 +98,18 @@ function App() {
 							minHeight: 280,
 						}}
 					>
+						<Timeline>
+							{
+								musicConfig.ListeningGuide[currentKey].Tips.Nodes.map((node, index) => {
+									let des = musicConfig.ListeningGuide[currentKey].Tips.Descriptions;
+									return (
+										<Timeline.Item key={node}>
+											{node + des[index]}
+										</Timeline.Item>
+									)
+								})
+							}
+						</Timeline>
 						<ReactAudioPlayer
 							src={track}
 							controls
