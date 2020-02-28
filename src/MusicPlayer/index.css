@@ -1,0 +1,6 @@
+.Cover{
+    background: url(../Img/bg_center.png) no-repeat center
+        ,url(../Img/bg_circle.png) no-repeat center;
+    width: 500px;
+    height: 500px;
+}

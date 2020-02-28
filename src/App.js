@@ -2,14 +2,13 @@
 //点击切换时间
 //样式调整，timeline，
 //播放器,圆形，滑动，进度条
-
+import musicConfig from './Music/config.json'
+import { Layout, Menu, Timeline, Breadcrumb, Row, Col, Button } from 'antd';
 import React, { useState, useRef } from 'react';
 import './App.css';
 import 'antd/dist/antd.css';
+import Player from './MusicPlayer'
 
-import ReactAudioPlayer from 'react-audio-player';
-import musicConfig from './Music/config.json'
-import { Layout, Menu, Timeline, Breadcrumb, Row, Col, Button } from 'antd';
 
 function App() {
 
@@ -26,13 +25,12 @@ function App() {
 	//init hooks
 	const [currentKey, setcurrentKey] = useState(0);
 	const [track, setTrack] = useState(require("./Music/2_1.wav"));
-	const audioObject = useRef(null);
+	const [time, setTime] = useState(0);
 
 	let adjustTime = (e, t) => {
 		t = t.trim();
 		let result = t.split(":");
-		let time = parseInt(result[0]) * 60 + parseInt(result[1]);
-		audioObject.current.audioEl.currentTime = time;
+		setTime(parseInt(result[0]) * 60 + parseInt(result[1]));
 	};
 
 	return (
@@ -109,11 +107,7 @@ function App() {
 					>
 						<Row type="flex" align="middle" justify="center">
 							<Col span={12}>
-								<ReactAudioPlayer
-									ref={audioObject}
-									src={track}
-									controls
-								/>
+								<Player track={track} time={time}/>
 							</Col>
 							<Col span={12}><Timeline>
 								{
