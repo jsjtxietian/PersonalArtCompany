@@ -1,8 +1,6 @@
-import React, { useEffect, useRef } from 'react';
+import React, { useState, useRef } from 'react';
 import './index.css';
-// import bgCircle from '../Img/bg_circle.png';
-// import bgCenter from '../Img/bg_center.png';
-// import btnBg from '../Img/btn_bg.png';
+import playImg from '../Img/play.png'
 
 
 function Player(props) {
@@ -12,11 +10,19 @@ function Player(props) {
     //     if (audioObject !== null)
     //         audioObject.current.audioEl.currentTime = props.time;
     // });
+    const [isPlaying, setisPlaying] = useState(false)
 
     return (
-        <div className="Cover">
-            
+        <div className="Player">
+            <div className="Cover">
+                <div className="BtBg">
+                </div>
+            </div>
+            <div className={["Button", isPlaying ? "active":null].join(' ')} onClick={()=>setisPlaying(!isPlaying)}>
+            </div>
         </div>
+
+
     )
 }
 

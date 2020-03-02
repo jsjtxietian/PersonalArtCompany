@@ -2,6 +2,7 @@
 //点击切换时间
 //样式调整，timeline，
 //播放器,圆形，滑动，进度条
+//ant motion
 import musicConfig from './Music/config.json'
 import { Layout, Menu, Timeline, Breadcrumb, Row, Col, Button } from 'antd';
 import React, { useState, useRef } from 'react';
@@ -52,13 +53,11 @@ function App() {
 				<Sider width={200} style={{ background: '#fff' }}>
 					<Menu
 						mode="inline"
-						// defaultSelectedKeys={['1']}
 						defaultOpenKeys={['ListeningGuide']}
 						style={{ height: '100%', borderRight: 0 }}
 						onClick={(item) => {
 							let k = parseInt(item.key);
 							setcurrentKey(k);
-
 							let trackName = musicConfig.ListeningGuide[k].Track;
 							setTrack(require("./Music/" + trackName));
 						}}

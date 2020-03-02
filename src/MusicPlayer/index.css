@@ -1,6 +1,47 @@
-.Cover{
-    background: url(../Img/bg_center.png) no-repeat center
-        ,url(../Img/bg_circle.png) no-repeat center;
-    width: 500px;
-    height: 500px;
+.Player{
+    display: flex;
+    justify-content: center;
+    align-items: center; 
 }
+
+.Cover{
+    background: url(../Img/bg_circle.png) no-repeat center,
+        url(../Img/bg_center.png) no-repeat center;
+
+    height: 380px;
+    width: 380px;
+    background-size: contain,250px;   
+    display: flex;
+    justify-content: center;
+    align-items: center; 
+    animation: BgRotate 7s infinite linear;
+}
+
+.BtBg{
+    background: url(../Img/btn_bg.png) no-repeat center;
+    width: 90px;
+    height: 90px;
+    animation: BgRotate 3s infinite linear ;
+}
+
+
+.Button{
+    position: absolute;
+    background: url(../Img/play.png) no-repeat center;
+    width: 100px;
+    height: 100px;
+}
+
+.active{
+    background: url(../Img/pause.png) no-repeat center;
+}
+
+
+
+@keyframes BgRotate
+{
+    from {}
+    to {transform: rotate(360deg);}
+}
+
+
