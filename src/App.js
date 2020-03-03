@@ -5,7 +5,7 @@
 //ant motion
 import musicConfig from './Music/config.json'
 import { Layout, Menu, Timeline, Breadcrumb, Row, Col, Button } from 'antd';
-import React, { useState, useRef } from 'react';
+import React, { useState } from 'react';
 import './App.css';
 import 'antd/dist/antd.css';
 import Player from './MusicPlayer'

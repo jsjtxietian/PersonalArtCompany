@@ -15,6 +15,11 @@
     justify-content: center;
     align-items: center; 
     animation: BgRotate 7s infinite linear;
+    animation-play-state:paused;
+}
+
+.CoverActive{
+    animation-play-state:running;
 }
 
 .BtBg{
@@ -32,7 +37,7 @@
     height: 100px;
 }
 
-.active{
+.ButtonActive{
     background: url(../Img/pause.png) no-repeat center;
 }
 
