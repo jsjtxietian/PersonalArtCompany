@@ -1,6 +1,6 @@
 import React, { useState, useRef, useEffect } from 'react';
+import { Descriptions } from 'antd';
 import './index.css';
-
 
 function Player(props) {
 
@@ -30,23 +30,25 @@ function Player(props) {
     }, [props.track]);
 
     return (
-        <div className="Player">
-            <div className={["Cover", isPlaying ? "CoverActive" : null].join(' ')}>
-                <div className="BtBg">
+        <div>
+            <Descriptions title="曲目介绍" size="small"  layout="vertical" bordered >
+                <Descriptions.Item label="名称">{props.info.Name}</Descriptions.Item>
+                <Descriptions.Item label="作者">{props.info.Author}</Descriptions.Item>
+                <Descriptions.Item label="时间">{props.info.Time}</Descriptions.Item>
+            </Descriptions>
+            <div className="Player">
+                <div className={["Cover", isPlaying ? "CoverActive" : null].join(' ')}>
+                    <div className="BtBg">
+                    </div>
+                </div>
+                <div className={["Button", isPlaying ? "ButtonActive" : null].join(' ')} onClick={() => setisPlaying(!isPlaying)}>
+                    <audio src={props.track} ref={audioObject}>
+                    </audio>
                 </div>
             </div>
-            <div className={["Button", isPlaying ? "ButtonActive" : null].join(' ')} onClick={() => setisPlaying(!isPlaying)}>
-                <audio src={props.track} ref={audioObject}>
-                </audio>
-            </div>
         </div>
+
     )
 }
 
 export default Player;
-
-// <ReactAudioPlayer
-//             ref={audioObject}
-//             src={props.track}
-//             controls
-//         />

@@ -103,9 +103,9 @@ function App() {
 							minHeight: 280,
 						}}
 					>
-						<Row type="flex" align="middle" justify="center">
+						<Row gutter="50">
 							<Col span={12}>
-								<Player track={track} time={time}/>
+								<Player track={track} time={time} info={musicConfig.ListeningGuide[currentKey]}/>
 							</Col>
 							<Col span={12}><Timeline>
 								{
