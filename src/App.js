@@ -1,6 +1,7 @@
 //TODO
 //1.播放器更多功能
 //2.标题，样式固定
+//3.timeline改进，滚动，样式变化
 
 import musicConfig from './Music/config.json'
 import { Layout, Menu, Timeline, Breadcrumb, Row, Col, Button } from 'antd';
