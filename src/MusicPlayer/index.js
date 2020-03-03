@@ -1,6 +1,5 @@
 import React, { useState, useRef, useEffect } from 'react';
 import './index.css';
-import playImg from '../Img/play.png'
 
 
 function Player(props) {
@@ -25,6 +24,11 @@ function Player(props) {
         }
     }, [props.time]);
 
+    useEffect(() => {
+        console.log(isPlaying)
+        setisPlaying(false);
+    }, [props.track]);
+
     return (
         <div className="Player">
             <div className={["Cover", isPlaying ? "CoverActive" : null].join(' ')}>
@@ -32,7 +36,7 @@ function Player(props) {
                 </div>
             </div>
             <div className={["Button", isPlaying ? "ButtonActive" : null].join(' ')} onClick={() => setisPlaying(!isPlaying)}>
-                <audio src={props.track} autoPlay ref={audioObject}>
+                <audio src={props.track} ref={audioObject}>
                 </audio>
             </div>
         </div>

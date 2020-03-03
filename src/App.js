@@ -1,8 +1,7 @@
 //TODO
-//点击切换时间
-//样式调整，timeline，
-//播放器,圆形，滑动，进度条
-//ant motion
+//1.播放器更多功能
+//2.标题，样式固定
+
 import musicConfig from './Music/config.json'
 import { Layout, Menu, Timeline, Breadcrumb, Row, Col, Button } from 'antd';
 import React, { useState } from 'react';
