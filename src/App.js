@@ -1,3 +1,5 @@
+//bug ： 点击按钮就重置了，第一首歌依然有样式错误
+
 //TODO
 //1.播放器更多功能
 //2.标题，样式固定
@@ -104,7 +106,7 @@ function App() {
 							minHeight: 280,
 						}}
 					>
-						<Row gutter="50">
+						<Row gutter={50}>
 							<Col span={12}>
 								<Player track={track} time={time} info={musicConfig.ListeningGuide[currentKey]}/>
 							</Col>
